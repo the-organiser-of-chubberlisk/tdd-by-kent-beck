@@ -15,3 +15,7 @@ This means:
 Two Beck Rules:
 > - Write a failing automated test before you write any code.
 > - Remove duplication.
+
+Two Strategies to Go Green:
+-  **Fake it**: Return a constant and gradually replace constants with variables until you have real code
+- **Use obvious implementation**: Write the real implementation
