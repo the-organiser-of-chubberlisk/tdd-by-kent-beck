@@ -1,5 +1,5 @@
 class Dollar
-  attr_accessor :amount
+  attr_reader :amount
 
   def initialize(amount)
     @amount = amount
@@ -10,6 +10,10 @@ class Dollar
   end
 
   def equal?(dollar)
+    self.amount == dollar.amount
+  end
+
+  def ==(dollar)
     self.amount == dollar.amount
   end
 end
