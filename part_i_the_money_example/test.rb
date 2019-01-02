@@ -14,6 +14,7 @@ class Test < Minitest::Test
     refute Dollar.new(5).equal?(Dollar.new(6))
     assert Franc.new(5).equal?(Franc.new(5))
     refute Franc.new(5).equal?(Franc.new(6))
+    refute Franc.new(5).equal?(Dollar.new(5))
   end
 
   def test_franc_multiplication
