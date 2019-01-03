@@ -1,25 +1,26 @@
 require 'minitest/autorun'
 require_relative './dollar'
 require_relative './franc'
+require_relative './money'
 
 class Test < Minitest::Test
   def test_multiplication
-    five = Dollar.new(5)
-    assert_equal Dollar.new(10), five.times(2)
-    assert_equal Dollar.new(15), five.times(3)
+    five = Money.dollar(5)
+    assert_equal Money.dollar(10), five.times(2)
+    assert_equal Money.dollar(15), five.times(3)
   end
 
   def test_equality
-    assert Dollar.new(5).equal?(Dollar.new(5))
-    refute Dollar.new(5).equal?(Dollar.new(6))
-    assert Franc.new(5).equal?(Franc.new(5))
-    refute Franc.new(5).equal?(Franc.new(6))
-    refute Franc.new(5).equal?(Dollar.new(5))
+    assert Money.dollar(5).equal?(Money.dollar(5))
+    refute Money.dollar(5).equal?(Money.dollar(6))
+    assert Money.franc(5).equal?(Money.franc(5))
+    refute Money.franc(5).equal?(Money.franc(6))
+    refute Money.franc(5).equal?(Money.dollar(5))
   end
 
   def test_franc_multiplication
-    five = Franc.new(5)
-    assert_equal Franc.new(10), five.times(2)
-    assert_equal Franc.new(15), five.times(3)
+    five = Money.franc(5)
+    assert_equal Money.franc(10), five.times(2)
+    assert_equal Money.franc(15), five.times(3)
   end
 end
