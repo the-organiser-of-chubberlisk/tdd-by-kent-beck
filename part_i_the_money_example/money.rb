@@ -1,5 +1,7 @@
+require_relative './sum'
+
 class Money
-  attr_reader :amount,:currency
+  attr_reader :amount, :currency
 
   def initialize(amount, currency)
     @amount = amount
@@ -27,6 +29,11 @@ class Money
   end
 
   def plus(addend)
-    Money.new(@amount + addend.amount, @currency)
+    Sum.new(self, addend)
+  end
+
+  def reduce(bank, to)
+    rate = bank.rate(@currency, to)
+    Money.new(@amount / rate, to)
   end
 end
